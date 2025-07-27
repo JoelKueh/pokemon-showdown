@@ -16,7 +16,7 @@ databases/*.db*
 *.o
 *.o.dSYM
 # Typescript build artifacts
-.*-dist/
+# .*-dist/
 tools/set-import/importer.js
 tools/modlog/converter.js
 *.tsbuildinfo
