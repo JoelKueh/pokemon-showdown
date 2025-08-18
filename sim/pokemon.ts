@@ -492,6 +492,13 @@ export class Pokemon {
 		this.hp = 0;
 		this.clearVolatile();
 		this.hp = this.maxhp;
+
+		// Custom hook: check if the set has a defined startingHP
+		if ((set as any).startingHP !== undefined) {
+			this.hp = Math.min(this.maxhp, (set as any).startingHP);
+		} else {
+			this.hp = this.maxhp;
+		}
 	}
 
 	toJSON(): AnyObject {
