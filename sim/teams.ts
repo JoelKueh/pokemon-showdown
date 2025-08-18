@@ -113,6 +113,12 @@ export interface PokemonSet {
 	 * Tera Type
 	 */
 	teraType?: string;
+	/**
+	 * Starting HP as a percentage (0–100).
+	 * If not defined, defaults to 100 (full HP).
+	 * Example: 50 means the Pokémon starts at half health.
+	 */
+	startingHP?: number;
 }
 
 export const Teams = new class Teams {

@@ -238,6 +238,12 @@ class Pokemon {
     this.hp = 0;
     this.clearVolatile();
     this.hp = this.maxhp;
+    if (set.startingHP !== void 0) {
+      const percent = set.startingHP;
+      this.hp = Math.floor(this.maxhp * Math.min(Math.max(percent, 0), 100) / 100);
+    } else {
+      this.hp = this.maxhp;
+    }
   }
   toJSON() {
     return import_state.State.serializePokemon(this);

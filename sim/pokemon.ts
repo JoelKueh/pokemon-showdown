@@ -492,6 +492,14 @@ export class Pokemon {
 		this.hp = 0;
 		this.clearVolatile();
 		this.hp = this.maxhp;
+
+		// Custom hook: check if the set has a defined startingHP (percentage)
+		if ((set as any).startingHP !== undefined) {
+			const percent = (set as any).startingHP;
+			this.hp = Math.floor(this.maxhp * Math.min(Math.max(percent, 0), 100) / 100);
+		} else {
+			this.hp = this.maxhp;
+		}
 	}
 
 	toJSON(): AnyObject {
